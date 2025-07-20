@@ -3,18 +3,18 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
 // Import translation files
-import en from './locales/en';
-import vi from './locales/vi';
+import en from './locales/en'
+import vi from './locales/vi'
 
 // import LanguageDetector from 'i18next-browser-languagedetector'
 
 i18n
-//   .use(LanguageDetector) // optional: detect from localStorage, browser
+  //   .use(LanguageDetector) // optional: detect from localStorage, browser
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translation: en },
-      vi: { translation: vi },
+      en: { ...en },
+      vi: { ...vi },
     },
     lng: localStorage.getItem('lng') || 'en',
     fallbackLng: 'en',

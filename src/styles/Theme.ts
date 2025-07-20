@@ -7,10 +7,15 @@ const theme = createTheme({
   // Define system colors
   palette: {
     primary: {
-      dark: '#675dd8',
-      main: '#7367f0',
+      dark: '#27548A',
+      main: '#3674B5',
       // medium: '#578FCA',
-      light: '#8f85f3',
+      light: '#578FCA',
+    },
+    secondary: {
+      dark: '#737682',
+      main: '#808390',
+      light: '#999CA6',
     },
     warning: {
       main: '#FF9D23',
@@ -55,6 +60,12 @@ const theme = createTheme({
       color: palette.text.primary,
       lineHeight: 1.5,
     },
+    h4: {
+      fontSize: 20,
+      fontWeight: 700,
+      color: palette.text.primary,
+      lineHeight: 1.5,
+    },
     body1: {
       fontSize: 16,
       color: palette.text.primary,
@@ -66,6 +77,7 @@ const theme = createTheme({
       lineHeight: 1.5,
     },
   }),
+  
   // Define spacing unit
   spacing: 4, // 1 unit = 4px
 
