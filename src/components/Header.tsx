@@ -119,7 +119,7 @@ const Header = () => {
     >
       {/*  Header content */}
       <Stack
-        px={{ xs: 2, sm: 4, md: 8, lg: 12, xl: 25 }}
+        px={{ xs: 2, sm: 8, md: 12, lg: 20, xl: 25 }}
         py={{ xs: 1, sm: 2, md: 3, lg: 4 }}
         direction={'row'}
         justifyContent={'space-between'}
