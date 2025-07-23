@@ -1,6 +1,17 @@
+/*
+ * MUI Components
+ */
 import { Grid, Typography } from '@mui/material'
-import { Icon } from '@iconify/react/dist/iconify.js'
+
+/*
+ * Styles
+ */
 import theme from '@/styles/Theme'
+
+/*
+ * Assets
+ */
+import { Icon } from '@iconify/react/dist/iconify.js'
 
 const Footer = () => {
   return (
