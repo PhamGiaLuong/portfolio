@@ -1,6 +1,6 @@
 /*
-* MUI
-*/
+ * MUI
+ */
 import { createTheme } from '@mui/material'
 
 const theme = createTheme({
@@ -39,10 +39,22 @@ const theme = createTheme({
   typography: (palette) => ({
     fontFamily: 'Noto Sans, sans-serif',
     fontSize: 16,
+    [`@media (max-width:900px)`]: {
+      fontSize: 15,
+    },
+    [`@media (max-width:600px)`]: {
+      fontSize: 14,
+    },
     fontWeight: 500,
     letterSpacing: 0.5,
     h1: {
       fontSize: 40,
+      [`@media (max-width:900px)`]: {
+        fontSize: 36,
+      },
+      [`@media (max-width:600px)`]: {
+        fontSize: 32,
+      },
       fontWeight: 700,
       letterSpacing: 0.3,
       color: palette.text.primary,
@@ -50,34 +62,64 @@ const theme = createTheme({
     },
     h2: {
       fontSize: 32,
+      [`@media (max-width:900px)`]: {
+        fontSize: 28,
+      },
+      [`@media (max-width:600px)`]: {
+        fontSize: 24,
+      },
       fontWeight: 700,
       color: palette.text.primary,
       lineHeight: 1.5,
     },
     h3: {
-      fontSize: 24,
+      fontSize: 28,
+      [`@media (max-width:900px)`]: {
+        fontSize: 24,
+      },
+      [`@media (max-width:600px)`]: {
+        fontSize: 22,
+      },
       fontWeight: 700,
       color: palette.text.primary,
       lineHeight: 1.5,
     },
     h4: {
-      fontSize: 20,
+      fontSize: 24,
+      [`@media (max-width:900px)`]: {
+        fontSize: 22,
+      },
+      [`@media (max-width:600px)`]: {
+        fontSize: 20,
+      },
       fontWeight: 700,
       color: palette.text.primary,
       lineHeight: 1.5,
     },
     body1: {
       fontSize: 16,
+      [`@media (max-width:900px)`]: {
+        fontSize: 15,
+      },
+      [`@media (max-width:600px)`]: {
+        fontSize: 14,
+      },
       color: palette.text.primary,
       lineHeight: 1.5,
     },
     body2: {
-      fontSize: 12,
+      fontSize: 14,
+      [`@media (max-width:900px)`]: {
+        fontSize: 13,
+      },
+      [`@media (max-width:600px)`]: {
+        fontSize: 12,
+      },
       color: palette.text.secondary,
       lineHeight: 1.5,
     },
   }),
-  
+
   // Define spacing unit
   spacing: 4, // 1 unit = 4px
 

@@ -17,7 +17,7 @@ const Footer = () => {
   return (
     <Grid
       size={12}
-      paddingY={3}
+      paddingY={2}
       display={'flex'}
       justifyContent={'center'}
       alignItems={'center'}
