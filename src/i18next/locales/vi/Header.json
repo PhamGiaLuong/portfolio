@@ -1,8 +1,7 @@
 {
     "home": "TRANG CHỦ",
-    "education": "HỌC VẤN",
-    "experience": "KINH NGHIỆM",
-    "skills": "KỸ NĂNG",
+    "about": "GIỚI THIỆU",
     "projects": "DỰ ÁN",
-    "myCV": "CV CỦA TÔI"
+    "experience": "KINH NGHIỆM",
+    "resume": "HỒ SƠ"
 }

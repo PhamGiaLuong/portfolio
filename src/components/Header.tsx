@@ -1,14 +1,10 @@
-/*
- * React
- */
+// React
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-/*
- * MUI
- */
+// MUI
 import {
   Box,
   Button,
@@ -16,25 +12,20 @@ import {
   useTheme,
   useMediaQuery,
   IconButton,
-  Drawer,
+  Drawer
 } from '@mui/material'
 
-/*
- * Assets
- */
+// Assets
 import { Icon } from '@iconify/react'
 import vi from '@/assets/vn.svg'
 import en from '@/assets/en.svg'
+import pgl from '@/assets/pgl.svg'
 
-/*
- * Redux
- */
-import { setLanguage } from '@/redux/slices/languageSlice'
+// Redux
+import { setLanguage } from '@/redux/slices/LanguageSlice'
 import type { RootState } from '@/redux/store'
 
-/*
- * Theme
- */
+// Theme
 import theme from '@/styles/Theme'
 
 const navLinkStyle = {
@@ -63,15 +54,12 @@ const Header = () => {
   }
   const rightMenu = (
     <>
-      <NavLink to="/" style={navLinkStyle}>
-        {t('Header:myCV')}
-      </NavLink>
-      <NavLink to="/education" style={navLinkStyle}>
+      {/* <NavLink to="/education" style={navLinkStyle}>
         <Icon icon={'ic:round-facebook'} width={30} height={30} />
       </NavLink>
       <NavLink to="/experience" style={navLinkStyle}>
         <Icon icon={'mdi:github'} width={30} height={30} />
-      </NavLink>
+      </NavLink> */}
       {lang === 'en' ? (
         <Button
           sx={{ minWidth: 'unset', padding: 0 }}
@@ -94,17 +82,17 @@ const Header = () => {
       <NavLink to="/" style={navLinkStyle}>
         {t('Header:home')}
       </NavLink>
-      <NavLink to="/education" style={navLinkStyle}>
-        {t('Header:education')}
-      </NavLink>
-      <NavLink to="/skills" style={navLinkStyle}>
-        {t('Header:skills')}
+      <NavLink to="/about" style={navLinkStyle}>
+        {t('Header:about')}
       </NavLink>
       <NavLink to="/projects" style={navLinkStyle}>
         {t('Header:projects')}
       </NavLink>
       <NavLink to="/experience" style={navLinkStyle}>
         {t('Header:experience')}
+      </NavLink>
+      <NavLink to="/resume" style={navLinkStyle}>
+        {t('Header:resume')}
       </NavLink>
     </>
   )
@@ -124,25 +112,17 @@ const Header = () => {
         direction={'row'}
         justifyContent={'space-between'}
         width={'100%'}
+        alignItems={'center'}
       >
-        {' '}
+        <img src={pgl} width={30} height={30} />
         {isTablet && (
           <>
             <Stack direction={'row'} alignItems={'center'} gap={8}>
               {leftMenu}
             </Stack>
-            <IconButton onClick={() => setOpenDrawer(true)}>
-              <Icon icon="ic:baseline-menu" width="24" height="24" />
-            </IconButton>
-            <Drawer
-              anchor="right"
-              open={openDrawer}
-              onClose={() => setOpenDrawer(false)}
-            >
-              <Stack direction="column" gap={4} alignItems={'center'} p={4}>
-                {rightMenu}
-              </Stack>
-            </Drawer>
+            <Stack direction="column" gap={4} alignItems={'center'}>
+              {rightMenu}
+            </Stack>
           </>
         )}
         {isMobile && (

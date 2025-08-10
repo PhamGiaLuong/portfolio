@@ -1,32 +1,28 @@
-/*
- * React Router Configuration
- */
+// React Router Configuration
 import { Outlet } from 'react-router-dom'
 
-/*
- * MUI Components
- */
-import { Grid } from '@mui/material'
+// MUI Components
+import { Box } from '@mui/material'
 
-/*
- * Custom Components
- */
+// Custom Components
 import Header from '@/components/Header'
-import BodyBox from '@/components/BodyBox'
 import Footer from '@/components/Footer'
-import GeneralInfo from '@/components/GeneralInfo'
 
 export default function MainLayout() {
   return (
-    <div>
+    <div
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}
+    >
       <Header />
-      <BodyBox>
-        <Grid container >
-          <GeneralInfo />
-          <Outlet />
-        </Grid>
-        <Footer />
-      </BodyBox>
+      <Box sx={{ flexGrow: 1 }}>
+        <Outlet />
+      </Box>
+      <Footer />
     </div>
   )
 }

@@ -1,6 +1,3 @@
-/*
- * MUI
- */
 import { createTheme } from '@mui/material'
 
 const theme = createTheme({
@@ -37,7 +34,7 @@ const theme = createTheme({
 
   // Define typography styles
   typography: (palette) => ({
-    fontFamily: 'Noto Sans, sans-serif',
+    fontFamily: '"Noto Sans", sans-serif',
     fontSize: 16,
     [`@media (max-width:900px)`]: {
       fontSize: 15,

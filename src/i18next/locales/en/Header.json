@@ -1,8 +1,7 @@
 {
   "home": "HOME",
-  "education": "EDUCATION",
-  "experience": "EXPERIENCE",
-  "skills": "SKILLS",
+  "about": "ABOUT",
   "projects": "PROJECTS",
-  "myCV": "MY CV"
+  "experience": "EXPERIENCE",
+  "resume": "RESUME"
 }

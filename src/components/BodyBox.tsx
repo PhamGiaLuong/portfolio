@@ -16,9 +16,8 @@ const BodyBox: React.FC<BodyBoxProps> = ({ children, ...props }) => {
       spacing={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
       px={{ xs: 2, sm: 8, md: 12, lg: 20, xl: 25 }}
       display={'flex'}
-      direction={'column'}
       justifyContent={'space-between'}
-      minHeight={'90vh'}
+      height={'100%'}
       {...props}
     >
       {children}
