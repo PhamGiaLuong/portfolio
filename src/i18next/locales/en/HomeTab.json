@@ -1,0 +1,18 @@
+{
+  "Welcome": {
+    "Hello": "Hello,",
+    "Name": "I am <0>PHAM GIA LUONG</0>",
+    "Job": "A <0>Software Developer</0> passionate about creativity",
+    "Description": "I love creating <0>web applications</0> and <0>embedded systems</0>, <br/> delivering convenient experiences that make life easier.",
+    "Action": "Scroll down and start exploring!"
+  },
+  "Introduce": {
+    "Heading": "LET ME INTRODUCE <0>MYSELF</0>",
+    "Job": "As a <0>Software Developer</0>, I write code to solve problems and create meaningful experiences that leave an impact.",
+    "Specialize": "I specialize in modern web technologies and embedded systems, building solutions that are efficient, scalable, and tailored to real-world needs.",
+    "Approach": "I approach every project with a balance of clean code, scalable architecture, and user-centered design.",
+    "WebSide": "On the <0>web side</0>, I work with React, Vite, and TypeScript to create fast, interactive, and maintainable interfaces.",
+    "EmbeddedSide": "On the <0>embedded side</0>, I write C code for ESP32, STM32, and Arduino boards to bring hardware ideas to life.",
+    "Enjoy": "I enjoy bridging the gap between software and hardware, crafting solutions that are both functional and impactful."
+  }
+}

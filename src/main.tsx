@@ -22,6 +22,7 @@ import './i18next'
  */
 import { ThemeProvider, CssBaseline } from '@mui/material'
 import theme from '@/styles/Theme'
+import '@/index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

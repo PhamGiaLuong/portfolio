@@ -1,0 +1,18 @@
+{
+  "Welcome": {
+    "Hello": "Xin chào,",
+    "Name": "Tôi là <0>PHẠM GIA LƯƠNG</0>",
+    "Job": "Một <0>Nhà phát triển phần mềm</0> yêu thích sự sáng tạo",
+    "Description": "Tôi đam mê tạo ra những <0>ứng dụng web</0> và <0>hệ thống nhúng</0>, <br/> mang đến trải nghiệm tiện lợi và giúp cuộc sống trở nên dễ dàng hơn.",
+    "Action": "Hãy cuộn xuống và bắt đầu khám phá nhé!"
+  },
+  "Introduce": {
+    "Heading": "HÃY ĐỂ TÔI <0>GIỚI THIỆU BẢN THÂN</0>",
+    "Job": "Là một <0>Nhà phát triển phần mềm</0>, tôi viết code để giải quyết vấn đề và tạo ra những trải nghiệm ý nghĩa, để lại dấu ấn lâu dài.",
+    "Specialize": "Tôi chuyên về các công nghệ web hiện đại và hệ thống nhúng, xây dựng những giải pháp hiệu quả, có khả năng mở rộng và phù hợp với nhu cầu thực tế.",
+    "Approach": "Tôi tiếp cận mỗi dự án với sự cân bằng giữa code sạch, kiến trúc có thể mở rộng và lấy người dùng làm trung tâm cho việc thiết kế.",
+    "WebSide": "Về <0>mảng web</0>, tôi làm việc với React, Vite và TypeScript để tạo ra những giao diện nhanh, tương tác mượt mà và dễ bảo trì.",
+    "EmbeddedSide": "Về <0>mảng nhúng</0>, tôi viết code C cho các bo mạch ESP32, STM32 và Arduino để biến những ý tưởng phần cứng thành hiện thực.",
+    "Enjoy": "Tôi yêu thích việc kết nối giữa phần mềm và phần cứng, tạo nên những giải pháp vừa hữu ích vừa mang lại giá trị thực tiễn."
+  }
+}
