@@ -14,5 +14,9 @@
     "WebSide": "Về <0>mảng web</0>, tôi làm việc với React, Vite và TypeScript để tạo ra những giao diện nhanh, tương tác mượt mà và dễ bảo trì.",
     "EmbeddedSide": "Về <0>mảng nhúng</0>, tôi viết code C cho các bo mạch ESP32, STM32 và Arduino để biến những ý tưởng phần cứng thành hiện thực.",
     "Enjoy": "Tôi yêu thích việc kết nối giữa phần mềm và phần cứng, tạo nên những giải pháp vừa hữu ích vừa mang lại giá trị thực tiễn."
+  },
+  "Contact": {
+    "Heading": "LIÊN HỆ VỚI TÔI",
+    "Invite": "Xin vui lòng liên hệ với tôi qua..."
   }
 }

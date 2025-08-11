@@ -14,5 +14,9 @@
     "WebSide": "On the <0>web side</0>, I work with React, Vite, and TypeScript to create fast, interactive, and maintainable interfaces.",
     "EmbeddedSide": "On the <0>embedded side</0>, I write C code for ESP32, STM32, and Arduino boards to bring hardware ideas to life.",
     "Enjoy": "I enjoy bridging the gap between software and hardware, crafting solutions that are both functional and impactful."
+  },
+  "Contact": {
+    "Heading": "CONTACT ME",
+    "Invite": "Please feel free to contact me at..."
   }
 }

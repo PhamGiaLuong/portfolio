@@ -1,18 +1,32 @@
 import BodyBox from '@/components/BodyBox'
-import { Box, Grid, Stack, Typography } from '@mui/material'
+import { Box, Grid, Stack, StepConnector, Typography } from '@mui/material'
 import Portrait from '@/assets/portrait.png'
+import Standing from '@/assets/standing.png'
 import theme from '@/styles/Theme'
 import { useState } from 'react'
 import TypingEffect from '@/styles/TypingEffect'
 import { Trans, useTranslation } from 'react-i18next'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
+import { useOutletContext } from 'react-router-dom'
+// Assets
+import { Icon } from '@iconify/react/dist/iconify.js'
+import * as Constants from '@/utils/Constants'
+
+type ContextType = { headerHeight: number }
 
 export default function HomeTab() {
   const { t } = useTranslation('HomeTab')
   useScrollReveal('fade-up', 'show', 0.15)
+  const { headerHeight } = useOutletContext<ContextType>()
+
   return (
     <>
-      <Box height={'95vh'} width={'100%'} sx={{ backgroundColor: '#E8F9FF' }}>
+      {/* Welcome section */}
+      <Box
+        height={`calc(100vh - ${headerHeight}px)`}
+        width={'100%'}
+        sx={{ backgroundColor: '#E8F9FF' }}
+      >
         <BodyBox
           justifyContent={'center'}
           alignItems={'center'}
@@ -168,11 +182,117 @@ export default function HomeTab() {
         </BodyBox>
       </Box>
 
-      <BodyBox direction={'row'}>
-        <Typography variant="h1">LET ME INTRODUCE MYSELF</Typography>
-        <Typography variant="h3" className="fade-up" sx={{ marginTop: '20px' }}>
-          {t('Welcome.Description')}
+      {/* Introduce section */}
+      <BodyBox direction={'row'} minHeight={'500px'} paddingY={4}>
+        <Grid
+          size={3}
+          className="fade-up"
+          display={'flex'}
+          flexDirection={'column'}
+          justifyContent={'end'}
+          sx={{ backgroundColor: theme.palette.primary.dark }}
+          borderRadius={1}
+          overflow={'hidden'}
+        >
+          <img src={Standing} alt="Standing" width={'100%'} />
+        </Grid>
+        <Grid
+          size={9}
+          className="fade-up"
+          display={'flex'}
+          flexDirection={'column'}
+          justifyContent={'center'}
+          gap={10}
+        >
+          <Typography variant="h1">
+            <Trans
+              i18nKey="HomeTab:Introduce.Heading"
+              components={[
+                <Box component="span" color={theme.palette.primary.dark} />,
+              ]}
+            />
+          </Typography>
+          <Stack direction={'column'} spacing={2}>
+            <Typography variant="body1">
+              <Trans
+                i18nKey="HomeTab:Introduce.Job"
+                components={[<strong />]}
+              />
+            </Typography>
+            <Typography variant="body1">
+              {t('HomeTab:Introduce.Specialize')}
+            </Typography>
+            <Typography variant="body1">
+              {t('HomeTab:Introduce.Approach')}
+            </Typography>
+            <Typography variant="body1">
+              <Trans
+                i18nKey="HomeTab:Introduce.WebSide"
+                components={[
+                  <strong style={{ color: theme.palette.primary.main }} />,
+                ]}
+              />
+            </Typography>
+            <Typography variant="body1">
+              <Trans
+                i18nKey="HomeTab:Introduce.EmbeddedSide"
+                components={[
+                  <strong style={{ color: theme.palette.primary.main }} />,
+                ]}
+              />
+            </Typography>
+            <Typography variant="body1">
+              {t('HomeTab:Introduce.Enjoy')}
+            </Typography>
+          </Stack>
+        </Grid>
+      </BodyBox>
+
+      <BodyBox
+        direction={'column'}
+        paddingY={4}
+        minHeight={'40vh'}
+        justifyContent={'center'}
+      >
+        <Typography
+          variant="h1"
+          className="fade-up"
+          color={theme.palette.primary.dark}
+        >
+          <Trans i18nKey="HomeTab:Contact.Heading" />
         </Typography>
+        <Stack direction={'column'} spacing={4} className="fade-up">
+          <Typography variant="body1">
+            <Trans i18nKey="HomeTab:Contact.Invite" />
+          </Typography>
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            justifyContent={'start'}
+            alignItems={'center'}
+            gap={2}
+          >
+            {Constants.Contacts.map((contact, index) => (
+              <Box
+                display={'flex'}
+                alignItems={'center'}
+                gap={4}
+                height={'30px'}
+                width={'max-content'}
+                padding={'4px 8px'}
+                border={'1px solid'}
+                borderRadius={2}
+                key={index}
+                onClick={() => window.open(contact.link, '_blank')}
+              >
+                <Icon icon={contact.icon} height={'100%'} width={'25px'} />
+
+                <Typography variant="body1" width={'max-content'}>
+                  {contact.name}
+                </Typography>
+              </Box>
+            ))}
+          </Stack>
+        </Stack>
       </BodyBox>
     </>
   )

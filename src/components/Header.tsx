@@ -6,13 +6,12 @@ import { useDispatch, useSelector } from 'react-redux'
 
 // MUI
 import {
-  Box,
   Button,
   Stack,
   useTheme,
   useMediaQuery,
   IconButton,
-  Drawer
+  Drawer,
 } from '@mui/material'
 
 // Assets
@@ -54,12 +53,6 @@ const Header = () => {
   }
   const rightMenu = (
     <>
-      {/* <NavLink to="/education" style={navLinkStyle}>
-        <Icon icon={'ic:round-facebook'} width={30} height={30} />
-      </NavLink>
-      <NavLink to="/experience" style={navLinkStyle}>
-        <Icon icon={'mdi:github'} width={30} height={30} />
-      </NavLink> */}
       {lang === 'en' ? (
         <Button
           sx={{ minWidth: 'unset', padding: 0 }}
@@ -97,14 +90,7 @@ const Header = () => {
     </>
   )
   return (
-    // Container for the header
-    <Box
-      sx={{
-        backgroundColor: 'white',
-        boxShadow: '0 2px 8px #578FCA',
-        width: '100vw',
-      }}
-    >
+    <>
       {/*  Header content */}
       <Stack
         px={{ xs: 2, sm: 8, md: 12, lg: 20, xl: 25 }}
@@ -153,7 +139,7 @@ const Header = () => {
           </>
         )}
       </Stack>
-    </Box>
+    </>
   )
 }
 
