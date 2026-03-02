@@ -170,6 +170,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const experienceTimeline = document.getElementById("experienceTimeline");
 
   // Experience Rendering Logic
+  // Experience Rendering Logic
+  const experienceModal = document.getElementById("experienceModal");
+  const expCloseBtn = document.getElementById("expCloseBtn");
+  const expModalTitle = document.getElementById("expModalTitle");
+  const expModalCompany = document.getElementById("expModalCompany");
+  const expModalDate = document.getElementById("expModalDate");
+  const expModalDesc = document.getElementById("expModalDesc");
+
+  if (expCloseBtn) {
+    expCloseBtn.addEventListener("click", () => {
+      experienceModal.classList.remove("show");
+      setTimeout(() => {
+        experienceModal.style.display = "none";
+      }, 300); // Matches CSS transition duration
+    });
+  }
+
   function renderExperience(lang) {
     if (!experienceTimeline) return;
     experienceTimeline.innerHTML = "";
@@ -184,22 +201,48 @@ document.addEventListener("DOMContentLoaded", () => {
         expDescItemsHTML += `<li>${item[lang]}</li>`;
       });
 
+      // Get translation for "View Details / Learn More"
+      const learnMoreText =
+        translations[lang] && translations[lang].learnMore
+          ? translations[lang].learnMore
+          : "Learn More";
+
       expItem.innerHTML = `
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     ${exp.logo ? `<img src="${exp.logo}" class="timeline-watermark" alt="Company Logo">` : ""}
-                    <div style="position: relative; z-index: 1;">
+                    <div style="position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%;">
                         <h3 class="timeline-role">
                             ${exp.role[lang]}
                             ${exp.company ? `<span class="role-separator">|</span> <span class="company-name">${exp.company[lang]}</span>` : ""}
                         </h3>
                         <div class="timeline-date">${exp.date[lang]}</div>
-                        <ul class="timeline-desc">
-                            ${expDescItemsHTML}
-                        </ul>
+                        <div class="exp-mobile-preview">
+                            <ul class="timeline-desc">
+                                ${expDescItemsHTML}
+                            </ul>
+                        </div>
+                        <a href="#" class="exp-view-btn project-link" style="margin-top: auto;">${learnMoreText} <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             `;
+
+      // Attach modal click behavior to the button wrapper
+      const viewBtn = expItem.querySelector(".exp-view-btn");
+      viewBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        expModalTitle.textContent = exp.role[lang];
+        expModalCompany.textContent = exp.company ? exp.company[lang] : "";
+        expModalDate.textContent = exp.date[lang];
+        expModalLogo.src = exp.logo;
+
+        expModalDesc.innerHTML = `<ul>${expDescItemsHTML}</ul>`;
+        experienceModal.style.display = "flex";
+        // Trigger reflow before adding the 'show' class for the fade-in animation
+        void experienceModal.offsetWidth;
+        experienceModal.classList.add("show");
+      });
+
       experienceTimeline.appendChild(expItem);
     });
   }

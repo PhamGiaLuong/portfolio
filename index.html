@@ -150,12 +150,8 @@
           </div>
           <div class="about-stats">
             <div class="stat-card">
-              <img
-                src="images/logo-Bachkhoa-khong-vien.png"
-                style="width: 70px; height: 70px"
-                alt=""
-              />
-              <h3 data-i18n="statUniversity">HCMUT</h3>
+              <img src="images/logo-Bachkhoa-khong-vien.png" alt="HCMUT" />
+              <h4 data-i18n="statUniversity">HCMUT</h4>
               <p data-i18n="statMajor">Computer Engineering</p>
             </div>
             <div class="stat-card">
@@ -234,6 +230,40 @@
         </div>
       </div>
     </section>
+    <!-- Experience Modal -->
+    <div id="experienceModal" class="modal">
+      <div class="modal-content fade-in-up" style="max-width: 800px">
+        <span class="close-btn" id="expCloseBtn">&times;</span>
+        <div
+          class="modal-body"
+          style="display: block; max-height: 85vh; overflow-y: auto"
+        >
+          <div class="modal-right" style="width: 100%">
+            <h3 id="expModalTitle" style="color: var(--primary-color)">Role</h3>
+            <h4
+              id="expModalCompany"
+              style="
+                color: var(--text-color);
+                margin-bottom: 1rem;
+                font-size: var(--fs-h4);
+              "
+            >
+              Company
+            </h4>
+            <p class="timeline-date" id="expModalDate">Date</p>
+            <img
+              id="expModalLogo"
+              src="images/logo-FPT-Software.png"
+              class="expModalWatermark"
+              alt="Company Logo"
+            />
+            <div id="expModalDesc" class="modal-desc">
+              <!-- Experience Details -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Project Modal -->
     <div id="projectModal" class="modal">
