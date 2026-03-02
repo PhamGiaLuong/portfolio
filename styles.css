@@ -383,7 +383,7 @@ h4 {
   background: white;
   border-radius: clamp(5px, 10px, 20px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  font-size: var(--fs-h4);
+  font-size: clamp(20px, 5vw, 50px);
   color: var(--primary-color);
   transition: transform 0.5s ease;
   animation: float 6s ease-in-out infinite;
