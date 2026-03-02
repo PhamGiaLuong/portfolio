@@ -234,6 +234,7 @@ h4 {
   font-family: var(--font-mono);
   display: flex;
   gap: 0.5rem;
+  width: 100%;
   align-items: center;
 }
 
@@ -254,10 +255,12 @@ h4 {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  min-width: 60px;
+  justify-content: center;
+  align-items: start;
+  min-width: max-content;
   opacity: 0;
   transform: translateY(10px);
-  pointer-events: none;
+  /* pointer-events: none; */
   transition: var(--transition);
   overflow: hidden;
   z-index: 1001;
@@ -281,9 +284,11 @@ h4 {
 
 .lang-dropdown span {
   padding: 0.6rem 1rem;
+  width: 100%;
   color: var(--text-color);
-  font-weight: 600;
-  text-align: center;
+  /* font-weight: 600; */
+  font-size: var(--fs-small);
+  text-align: left;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -914,8 +919,8 @@ h4 {
 
 .social-links {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  justify-content: space-around;
+  /* gap: unset; */
   margin-top: clamp(2rem, 4vw, 3rem);
 }
 
