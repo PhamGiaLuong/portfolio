@@ -27,27 +27,48 @@
           <i class="fas fa-bars"></i>
         </div>
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about" data-i18n="navAbout">About</a></li>
+          <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
+          <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+          <li class="lang-switch-container">
+            <button id="langToggle" class="btn lang-btn">EN</button>
+            <div class="lang-dropdown">
+              <span data-lang="en">EN</span>
+              <span data-lang="vi">VI</span>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
 
     <header class="hero" id="home">
       <div class="hero-content fade-in">
-        <div class="badge">Computer Engineering @ HCMUT</div>
-        <h1>Hi, I'm <span class="highlight">Gia Luong</span></h1>
+        <div class="badge" data-i18n="heroBadge">
+          Computer Engineering @ HCMUT
+        </div>
+        <h1>
+          <span data-i18n="heroGreeting">Hi, I'm</span>
+          <span class="highlight" data-i18n="heroName">Gia Luong</span>
+        </h1>
         <p>
-          Specializing in <strong>Software Development</strong> &
-          <strong>Embedded Systems</strong>.
+          <span data-i18n="heroSpecialize">Specializing in</span>
+          <strong data-i18n="heroSoftware">Software Development</strong>
+          <span data-i18n="heroAnd">&</span>
+          <strong data-i18n="heroEmbedded">Embedded Systems</strong>.
         </p>
-        <p class="subtitle">
+        <p class="subtitle" data-i18n="heroSubtitle">
           Engineering solutions from the microchip to the web.
         </p>
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          <a href="#projects" class="btn btn-primary" data-i18n="heroBtnWork"
+            >View My Work</a
+          >
+          <a
+            href="#contact"
+            class="btn btn-secondary"
+            data-i18n="heroBtnContact"
+            >Get In Touch</a
+          >
         </div>
       </div>
       <div class="hero-visual fade-in-delay">
@@ -68,10 +89,15 @@
 
     <section id="about" class="about section-padding">
       <div class="container slide-up">
-        <h2 class="section-title">About <span>Me</span></h2>
+        <h2 class="section-title">
+          <span data-i18n="aboutTitle1" style="color: var(--text-color)"
+            >About</span
+          >
+          <span data-i18n="aboutTitle2">Me</span>
+        </h2>
         <div class="about-grid">
           <div class="about-text">
-            <p>
+            <p data-i18n="aboutP1">
               As a <strong>Computer Engineering student at HCMUT</strong>, I am
               deeply passionate about the intersection of hardware and software.
               I am a highly disciplined and responsible engineer who approaches
@@ -79,7 +105,7 @@
               my craft. My goal is to build reliable, scalable, and impactful
               technology solutions.
             </p>
-            <p>
+            <p data-i18n="aboutP2">
               <strong>Embedded Systems Engineering:</strong> I am captivated by
               hardware architecture and low-level programming. My expertise
               spans C/C++, Altium Designer (schematic/PCB), and microcontroller
@@ -88,7 +114,7 @@
               tests, and exploring advanced concepts like the AUTOSAR
               architecture and edge-based computer vision deployment.
             </p>
-            <p>
+            <p data-i18n="aboutP3">
               <strong>Full-Stack Web Development:</strong> I love translating
               complex requirements into seamless digital experiences. I
               specialize in building robust system architectures (such as the
@@ -97,7 +123,7 @@
               Bootstrap, supported by strong skills in database design (DDL/DML)
               and team leadership.
             </p>
-            <p>
+            <p data-i18n="aboutP4">
               I am always eager to bring my strong sense of ownership and
               multidisciplinary skill set to a collaborative, forward-thinking
               team.
@@ -124,13 +150,13 @@
                 style="width: 70px; height: 70px"
                 alt=""
               />
-              <h3>HCMUT</h3>
-              <p>Computer Engineering</p>
+              <h3 data-i18n="statUniversity">HCMUT</h3>
+              <p data-i18n="statMajor">Computer Engineering</p>
             </div>
             <div class="stat-card">
               <i class="fas fa-clipboard-check"></i>
               <h3>100%</h3>
-              <p>Responsibility & Dedication</p>
+              <p data-i18n="statPercent">Responsibility & Dedication</p>
             </div>
           </div>
         </div>
@@ -139,7 +165,12 @@
 
     <section id="projects" class="projects section-padding">
       <div class="container slide-up">
-        <h2 class="section-title">Outstanding <span>Projects</span></h2>
+        <h2 class="section-title">
+          <span data-i18n="projectsTitle1" style="color: var(--text-color)"
+            >Outstanding</span
+          >
+          <span data-i18n="projectsTitle2">Projects</span>
+        </h2>
         <div class="project-grid" id="projectGrid">
           <!-- Projects will be dynamically generated here from data.js -->
         </div>
@@ -148,8 +179,13 @@
 
     <section id="contact" class="contact section-padding">
       <div class="container slide-up">
-        <h2 class="section-title">Let's <span>Connect</span></h2>
-        <p class="contact-subtitle">
+        <h2 class="section-title">
+          <span data-i18n="contactTitle1" style="color: var(--text-color)"
+            >Let's</span
+          >
+          <span data-i18n="contactTitle2">Connect</span>
+        </h2>
+        <p class="contact-subtitle" data-i18n="contactSubtitle">
           I'm currently open to new opportunities. Whether you have a question
           or just want to say hi, I will try my best to get back to you!
         </p>
@@ -157,7 +193,8 @@
           <a
             href="mailto:pham15032004@gmail.com"
             class="btn btn-primary btn-large"
-            >Say Hello <i class="fas fa-paper-plane"></i
+            ><span data-i18n="contactBtn">Say Hello</span>
+            <i class="fas fa-paper-plane"></i
           ></a>
           <div class="social-links">
             <a href="https://github.com/phamgialuong" target="_blank"
@@ -186,7 +223,9 @@
             <iframe id="modalPdf" src="" allow="autoplay"></iframe>
             <div id="noPdfMessage" class="no-pdf-message" style="display: none">
               <i class="fas fa-file-pdf"></i>
-              <p>PDF Report not available for this project.</p>
+              <p data-i18n="modalPdfError">
+                PDF Report not available for this project.
+              </p>
             </div>
           </div>
           <div class="modal-right">
@@ -196,7 +235,8 @@
               Detailed descriptions will appear here.
             </div>
             <a id="modalGithub" href="#" target="_blank" class="btn btn-primary"
-              ><i class="fab fa-github"></i> View Repository</a
+              ><i class="fab fa-github"></i>
+              <span data-i18n="modalBtnRepo">View Repository</span></a
             >
           </div>
         </div>
@@ -204,9 +244,12 @@
     </div>
 
     <footer>
-      <p>&copy; 2025 PhamGiaLuong. All rights reserved. v2026.3</p>
+      <p data-i18n="footerText">
+        &copy; 2025 PhamGiaLuong. All rights reserved. v2026.3
+      </p>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
   </body>

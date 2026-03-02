@@ -1,4 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // --- i18n State Engine ---
+  let currentLang = localStorage.getItem("lang") || "en";
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("lang", lang);
+
+    // Update static UI elements
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[lang] && translations[lang][key]) {
+        // If it's a structural element, we might need innerHTML, but textContent is safer.
+        // Since our translations have some <strong> tags, innerHTML is required.
+        el.innerHTML = translations[lang][key];
+      }
+    });
+
+    // Update the language toggle button text
+    const langBtnText = document.querySelector(".lang-btn span:first-child");
+    if (langBtnText) {
+      langBtnText.textContent = lang.toUpperCase();
+    }
+
+    // Re-render project cards with selected language
+    if (typeof renderProjects === "function") {
+      renderProjects(lang);
+    }
+  }
+
+  // Set up language switcher events
+  document.querySelectorAll(".lang-dropdown span").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      const selectedLang = e.target.getAttribute("data-lang");
+      if (selectedLang) {
+        setLanguage(selectedLang);
+      }
+    });
+  });
+
   // Navbar scroll effect
   const navbar = document.querySelector(".navbar");
   window.addEventListener("scroll", () => {
@@ -86,22 +125,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault();
       const targetId = this.getAttribute("href");
+
+      // Only process if it's still a local hash link
+      if (!targetId || !targetId.startsWith("#")) return;
+
+      e.preventDefault();
       if (targetId === "#") return;
 
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        const navbarHeight = document.querySelector(".navbar").offsetHeight;
-        const targetPosition =
-          targetElement.getBoundingClientRect().top +
-          window.pageYOffset -
-          navbarHeight;
+      try {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const navbarHeight = document.querySelector(".navbar").offsetHeight;
+          const targetPosition =
+            targetElement.getBoundingClientRect().top +
+            window.pageYOffset -
+            navbarHeight;
 
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
-        });
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+        }
+      } catch (error) {
+        console.warn("Smooth scroll selector error ignored:", error);
       }
     });
   });
@@ -116,18 +163,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalGithub = document.getElementById("modalGithub");
 
   const projectGrid = document.getElementById("projectGrid");
-  if (projectGrid && typeof projectsData !== "undefined") {
+
+  // Extracted render logic to adapt to language changes dynamically
+  function renderProjects(lang) {
+    if (!projectGrid || typeof projectsData === "undefined") return;
+
+    projectGrid.innerHTML = ""; // Clear existing
+
     projectsData.forEach((project) => {
       const card = document.createElement("div");
       card.className = "project-card";
       card.style.cursor = "pointer";
+
+      // Handle i18n for dynamic data
+      const title = project.title[lang] || project.title.en;
+      const domain = project.domain[lang] || project.domain.en;
+      const desc = project.desc[lang] || project.desc.en;
+      const learnMoreText =
+        translations[lang] && translations[lang].learnMore
+          ? translations[lang].learnMore
+          : "Learn More";
+
       card.innerHTML = `
                 <div class="project-icon"><i class="${project.icon}"></i></div>
                 <div class="project-content">
-                    <h3>${project.title}</h3>
-                    <p class="project-domain">${project.domain}</p>
-                    <p class="project-desc">${project.desc}</p>
-                    <a href="${project.github}" target="_blank" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <h3>${title}</h3>
+                    <p class="project-domain">${domain}</p>
+                    <p class="project-desc">${desc}</p>
+                    <a href="${project.github}" target="_blank" class="project-link">${learnMoreText} <i class="fas fa-arrow-right"></i></a>
                 </div>
             `;
 
@@ -135,12 +198,15 @@ document.addEventListener("DOMContentLoaded", () => {
       card.addEventListener("click", (e) => {
         if (e.target.closest(".project-link")) return;
 
-        modalTitle.textContent = project.title;
-        modalDomain.textContent = project.domain;
-        if (project.detailedDesc) {
-          modalDesc.innerHTML = project.detailedDesc;
+        const detailedDesc =
+          project.detailedDesc[lang] || project.detailedDesc.en;
+
+        modalTitle.textContent = title;
+        modalDomain.textContent = domain;
+        if (detailedDesc) {
+          modalDesc.innerHTML = detailedDesc;
         } else {
-          modalDesc.textContent = project.desc;
+          modalDesc.textContent = desc;
         }
         modalGithub.href = project.github;
 
@@ -161,6 +227,9 @@ document.addEventListener("DOMContentLoaded", () => {
       projectGrid.appendChild(card);
     });
   }
+
+  // Initialize application language on load
+  setLanguage(currentLang);
 
   const closeModal = () => {
     if (!modal) return;
