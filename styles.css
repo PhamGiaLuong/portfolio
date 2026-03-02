@@ -11,14 +11,15 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Typography Scaling Variables */
-  --fs-h1: clamp(2.5rem, 5vw + 1rem, 4.5rem);
-  --fs-h2: clamp(2rem, 4vw + 1rem, 3.5rem);
-  --fs-h3: clamp(1.5rem, 3vw + 0.5rem, 2rem);
-  --fs-h4: clamp(1.2rem, 2vw + 0.5rem, 1.5rem);
-  --fs-body: clamp(0.95rem, 1vw + 0.5rem, 1.15rem);
-  --fs-small: clamp(0.85rem, 0.8vw + 0.5rem, 1rem);
+  --fs-h1: clamp(2rem, 5vw + 1rem, 4.5rem);
+  --fs-h2: clamp(1.5rem, 4vw + 1rem, 3.5rem);
+  --fs-h3: clamp(1.2rem, 3vw + 0.5rem, 2rem);
+  --fs-h4: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+  --fs-body: clamp(0.85rem, 1vw + 0.5rem, 1.15rem);
+  --fs-small: clamp(0.75rem, 0.8vw + 0.5rem, 1rem);
   --spacing-section: clamp(3rem, 6vw + 2rem, 6rem);
   --spacing-gap: clamp(1.5rem, 3vw, 2.5rem);
+  --radius: clamp(0.5rem, 1vw + 0.5rem, 1rem);
 }
 
 * {
@@ -137,7 +138,7 @@ h4 {
 
 .btn-large {
   padding: 1rem 2.5rem;
-  font-size: 1.1rem;
+  font-size: var(--fs-h4);
 }
 
 /* Navbar */
@@ -171,7 +172,7 @@ h4 {
 
 .logo {
   font-family: "Philosopher", sans-serif;
-  font-size: 1.75rem;
+  font-size: var(--fs-h3);
   font-weight: 800;
   color: var(--text-color);
   text-decoration: none;
@@ -227,9 +228,9 @@ h4 {
   color: var(--primary-color);
   border: 1px solid rgba(0, 102, 255, 0.2);
   padding: 0.4rem 0.8rem;
-  border-radius: 8px;
+  border-radius: var(--radius);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: var(--fs-body);
   font-family: var(--font-mono);
   display: flex;
   gap: 0.5rem;
@@ -294,7 +295,7 @@ h4 {
 
 .menu-toggle {
   display: none;
-  font-size: 1.5rem;
+  font-size: var(--fs-h3);
   color: var(--text-color);
   cursor: pointer;
   transition: var(--transition);
@@ -534,7 +535,7 @@ h4 {
 }
 
 .stat-card h3 {
-  font-size: 1.8rem;
+  font-size: var(--fs-h3);
   margin-bottom: 0.5rem;
 }
 
@@ -642,7 +643,7 @@ h4 {
 }
 
 .timeline-role {
-  font-size: 1.4rem;
+  font-size: var(--fs-h3);
   color: var(--text-color);
   margin-bottom: 0.5rem;
   font-weight: 700;
@@ -665,7 +666,7 @@ h4 {
 }
 
 .timeline-date {
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   color: var(--primary-color);
   font-family: var(--font-mono);
   font-weight: 600;
@@ -696,7 +697,28 @@ h4 {
   left: 0;
   color: var(--secondary-color);
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: var(--fs-body);
+}
+
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 30px;
+  }
+
+  .timeline-item {
+    padding: 10px 20px 30px 70px;
+  }
+
+  .timeline-dot {
+    left: 21px;
+  }
+
+  .timeline-watermark {
+    opacity: 0.06;
+    top: 40%;
+    right: 15%;
+    height: 25%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -705,15 +727,32 @@ h4 {
   }
 
   .timeline-item {
-    padding-left: 60px;
+    padding: 10px 10px 30px 50px;
   }
 
   .timeline-dot {
-    left: 12px;
+    left: 11px;
+    width: 16px;
+    height: 16px;
   }
 
   .timeline-content {
-    padding: 1.5rem;
+    padding: 1.2rem;
+  }
+
+  .timeline-role {
+    font-size: var(--fs-h4);
+  }
+
+  .timeline-role-logo {
+    height: 1.2rem;
+  }
+
+  .timeline-watermark {
+    opacity: 0.05;
+    height: 20%;
+    right: 5%;
+    top: 45%;
   }
 }
 
@@ -727,7 +766,7 @@ h4 {
 .project-card {
   background: white;
   border-radius: 24px;
-  padding: clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(12px, 4vw, 24px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   transition: var(--transition);
   position: relative;
@@ -764,14 +803,14 @@ h4 {
 }
 
 .project-icon {
-  width: 65px;
-  height: 65px;
+  width: clamp(40px, 10vw, 65px);
+  height: clamp(40px, 10vw, 65px);
   background: rgba(0, 102, 255, 0.08);
-  border-radius: 16px;
+  border-radius: var(--radius);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: var(--fs-h3);
   color: var(--primary-color);
   margin-bottom: 1.8rem;
   transition: var(--transition);
@@ -805,7 +844,7 @@ h4 {
 
 .project-desc {
   color: var(--text-light);
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   flex: 1;
   font-size: var(--fs-body);
 }
@@ -889,7 +928,7 @@ h4 {
   border-radius: 50%;
   background: var(--bg-color);
   color: var(--text-color);
-  font-size: 1.3rem;
+  font-size: var(--fs-h4);
   transition: var(--transition);
   text-decoration: none;
   border: 1px solid var(--border-color);
@@ -993,7 +1032,7 @@ footer {
   top: 15px;
   right: 20px;
   color: var(--text-light);
-  font-size: 1.5rem;
+  font-size: var(--fs-h1);
   cursor: pointer;
   z-index: 10;
   transition: var(--transition);
@@ -1036,13 +1075,13 @@ footer {
 
 #modalTitle {
   color: var(--primary-color);
-  font-size: 2rem;
+  font-size: var(--fs-h3);
   margin-bottom: 0.5rem;
 }
 
 #modalDomain {
   color: var(--secondary-color);
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1050,7 +1089,7 @@ footer {
 
 #modalDesc {
   color: var(--text-color);
-  font-size: 1.05rem;
+  font-size: var(--fs-body);
   line-height: 1.7;
   margin-bottom: 2rem;
 }
@@ -1059,7 +1098,7 @@ footer {
   color: var(--text-heading);
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
-  font-size: 1.15rem;
+  font-size: var(--fs-h4);
   border-left: 3px solid var(--primary-neon);
   padding-left: 10px;
 }
@@ -1088,7 +1127,7 @@ footer {
   color: var(--primary-neon);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
-  font-size: 0.9em;
+  font-size: var(--fs-small);
 }
 
 /* Responsive */
@@ -1113,7 +1152,7 @@ footer {
   }
 
   .hero h1 {
-    font-size: 3.5rem;
+    font-size: var(--fs-h1);
   }
 
   .about-grid {
