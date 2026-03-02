@@ -22,9 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
       langBtnText.textContent = lang.toUpperCase();
     }
 
-    // Re-render project cards with selected language
+    // Re-render project cards and experience timeline with selected language
     if (typeof renderProjects === "function") {
       renderProjects(lang);
+    }
+    if (typeof renderExperience === "function") {
+      renderExperience(lang);
     }
   }
 
@@ -164,7 +167,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const projectGrid = document.getElementById("projectGrid");
 
-  // Extracted render logic to adapt to language changes dynamically
+  const experienceTimeline = document.getElementById("experienceTimeline");
+
+  // Experience Rendering Logic
+  function renderExperience(lang) {
+    if (!experienceTimeline) return;
+    experienceTimeline.innerHTML = "";
+
+    [...experienceData].reverse().forEach((exp) => {
+      const expItem = document.createElement("div");
+      expItem.classList.add("timeline-item");
+
+      // Build the desc items (bullet points) dynamically
+      let expDescItemsHTML = "";
+      exp.descItems.forEach((item) => {
+        expDescItemsHTML += `<li>${item[lang]}</li>`;
+      });
+
+      expItem.innerHTML = `
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    ${exp.logo ? `<img src="${exp.logo}" class="timeline-watermark" alt="Company Logo">` : ""}
+                    <div style="position: relative; z-index: 1;">
+                        <h3 class="timeline-role">
+                            ${exp.role[lang]}
+                            ${exp.company ? `<span class="role-separator">|</span> <span class="company-name">${exp.company[lang]}</span>` : ""}
+                        </h3>
+                        <div class="timeline-date">${exp.date[lang]}</div>
+                        <ul class="timeline-desc">
+                            ${expDescItemsHTML}
+                        </ul>
+                    </div>
+                </div>
+            `;
+      experienceTimeline.appendChild(expItem);
+    });
+  }
+
+  // Extracted logic to adapt to language changes dynamically for Projects
   function renderProjects(lang) {
     if (!projectGrid || typeof projectsData === "undefined") return;
 

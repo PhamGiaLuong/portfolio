@@ -1,3 +1,44 @@
+const experienceData = [
+  {
+    id: 1,
+    logo: "https://cdn.prod.website-files.com/6481bf7bc1b01843dd1ced2b/6626226239d9ccc4932b4e43_FPT%20Software-p-1600.png",
+    role: {
+      en: "Front-end Developer Intern",
+      vi: "Thực tập sinh Lập trình Front-end",
+    },
+    company: {
+      en: "FPT Software",
+      vi: "Công ty TNHH Phần Mềm FPT",
+    },
+    date: {
+      en: "June 2025 – August 2025",
+      vi: "Tháng 6, 2025 – Tháng 8, 2025",
+    },
+    descItems: [
+      {
+        en: "Contributed to the development of a web-based Supply Chain Management system using React, TypeScript, and Vite within an Agile/Scrum environment.",
+        vi: "Đóng góp phát triển hệ thống Quản lý Chuỗi Cung ứng nền tảng Web sử dụng React, TypeScript và Vite trong môi trường làm việc Agile/Scrum.",
+      },
+      {
+        en: "Designed UI/UX wireframes and prototypes using Figma to ensure intuitive user experiences.",
+        vi: "Thiết kế wireframes và nguyên mẫu UI/UX trên Figma, đảm bảo mang lại trải nghiệm người dùng trực quan, thân thiện.",
+      },
+      {
+        en: "Built responsive and interactive user interfaces leveraging Material UI (MUI), Redux Toolkit, and React Hook Form.",
+        vi: "Xây dựng giao diện người dùng tương tác, reponsive bằng việc tận dụng Material UI (MUI), Redux Toolkit và React Hook Form.",
+      },
+      {
+        en: "Implemented secure authentication and developed complex management modules (Users, Factories, Departments, Devices) integrating RESTful APIs via Axios and TanStack Query.",
+        vi: "Triển khai xác thực bảo mật và phát triển các khối module quản lý dữ liệu phức tạp (Người dùng, Phân xưởng, Phòng ban, Thiết bị), tích hợp RESTful API qua Axios và TanStack Query.",
+      },
+      {
+        en: "Ensured high-quality code and system stability by conducting unit and integration tests with Vitest, participating in code reviews, and utilizing Git/GitLab for version control.",
+        vi: "Đảm bảo mã nguồn chất lượng cao và tính ổn định của hệ thống nhờ thực hiện unit/integration test qua Vitest, đánh giá code review và ứng dụng Git/GitLab để quản lý phiên bản.",
+      },
+    ],
+  },
+];
+
 const projectsData = [
   {
     id: 1,
