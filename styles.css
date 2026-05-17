@@ -11,12 +11,12 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Typography Scaling Variables */
-  --fs-h1: clamp(2rem, 5vw + 1rem, 4.5rem);
-  --fs-h2: clamp(1.5rem, 4vw + 1rem, 3.5rem);
-  --fs-h3: clamp(1.2rem, 3vw + 0.5rem, 2rem);
-  --fs-h4: clamp(1rem, 2vw + 0.5rem, 1.5rem);
-  --fs-body: clamp(0.85rem, 1vw + 0.5rem, 1.15rem);
-  --fs-small: clamp(0.75rem, 0.8vw + 0.5rem, 1rem);
+  --fs-h1: clamp(1.75rem, 4vw + 0.75rem, 3.5rem);
+  --fs-h2: clamp(1.25rem, 3vw + 0.75rem, 2.75rem);
+  --fs-h3: clamp(1.05rem, 2vw + 0.5rem, 1.75rem);
+  --fs-h4: clamp(0.9rem, 1.5vw + 0.5rem, 1.25rem);
+  --fs-body: clamp(0.75rem, 0.8vw + 0.5rem, 1rem);
+  --fs-small: clamp(0.65rem, 0.5vw + 0.4rem, 0.85rem);
   --spacing-section: clamp(3rem, 6vw + 2rem, 6rem);
   --spacing-gap: clamp(1.5rem, 3vw, 2.5rem);
   --radius: clamp(0.5rem, 1vw + 0.5rem, 1rem);
@@ -511,6 +511,56 @@ h4 {
   border-color: var(--primary-color);
 }
 
+.tag-lang {
+  color: #0369a1;
+  background-color: #f0f9ff;
+  border-color: #bae6fd;
+}
+.tag-lang:hover {
+  box-shadow: 0 8px 15px rgba(3, 105, 161, 0.15);
+  border-color: #0369a1;
+}
+
+.tag-fw {
+  color: #0f766e;
+  background-color: #f0fdfa;
+  border-color: #99f6e4;
+}
+.tag-fw:hover {
+  box-shadow: 0 8px 15px rgba(15, 118, 110, 0.15);
+  border-color: #0f766e;
+}
+
+.tag-platform {
+  color: #4338ca;
+  background-color: #eef2ff;
+  border-color: #c7d2fe;
+}
+.tag-platform:hover {
+  box-shadow: 0 8px 15px rgba(67, 56, 202, 0.15);
+  border-color: #4338ca;
+}
+
+.tag-hw {
+  color: #334155;
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+.tag-hw:hover {
+  box-shadow: 0 8px 15px rgba(51, 65, 85, 0.15);
+  border-color: #334155;
+}
+
+.tag-tool {
+  color: #be185d;
+  background-color: #fdf2f8;
+  border-color: #fbcfe8;
+}
+.tag-tool:hover {
+  box-shadow: 0 8px 15px rgba(190, 24, 93, 0.15);
+  border-color: #be185d;
+}
+
 .about-stats {
   display: flex;
   flex-direction: column;
@@ -910,6 +960,43 @@ h4 {
 
 .project-link:hover i {
   transform: translateX(4px);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #ffb030, #fa4d50);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(255, 94, 98, 0.3);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.featured-badge i {
+  animation: starPulse 2s infinite;
+}
+
+@keyframes starPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Contact Section */

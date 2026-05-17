@@ -267,15 +267,24 @@ document.addEventListener("DOMContentLoaded", () => {
           ? translations[lang].learnMore
           : "Learn More";
 
+      const highlightedText =
+        translations[lang] && translations[lang].highlight
+          ? translations[lang].highlight
+          : "Highlight";
+      const badgeHTML = project.isHighlighted
+        ? `<div class="featured-badge"><i class="fas fa-star"></i> ${highlightedText}</div>`
+        : "";
+
       card.innerHTML = `
-                <div class="project-icon"><i class="${project.icon}"></i></div>
-                <div class="project-content">
-                    <h3>${title}</h3>
-                    <p class="project-domain">${domain}</p>
-                    <p class="project-desc">${desc}</p>
-                    <a href="${project.github}" target="_blank" class="project-link">${learnMoreText} <i class="fas fa-arrow-right"></i></a>
-                </div>
-            `;
+          ${badgeHTML}
+          <div class="project-icon"><i class="${project.icon}"></i></div>
+          <div class="project-content">
+              <h3>${title}</h3>
+              <p class="project-domain">${domain}</p>
+              <p class="project-desc">${desc}</p>
+              <a href="${project.github}" target="_blank" class="project-link">${learnMoreText} <i class="fas fa-arrow-right"></i></a>
+          </div>
+      `;
 
       // Attach click event for the modal
       card.addEventListener("click", (e) => {

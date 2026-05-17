@@ -433,6 +433,7 @@ const projectsData = [
   },
   {
     id: 5,
+    isHighlighted: true,
     pdf: "https://drive.google.com/file/d/1zD7WsolNfqZRyrj8_hriaMztvcolZG3B/preview",
     title: {
       en: "Smart Study Space Management",
@@ -541,6 +542,7 @@ const projectsData = [
   },
   {
     id: 6,
+    isHighlighted: true,
     pdf: "https://drive.google.com/file/d/1EYjZBCuu4rpNnGZK1fahHy3szsS3_yrs/preview",
     title: {
       en: "IoT Microclimate Monitoring System",
@@ -746,6 +748,67 @@ const projectsData = [
                     lô tín hiệu MQTT thời gian thực. Bóc tách String qua Base64 Decoder và luồng giải mật AES.
                     Chủ động hóa thân thành Hacker nghe lén (Man-in-the-Middle) xài luồng phân tích Wireshark chặn cửa xả hệ thống, 
                     nâng xác suất phòng vệ tuyệt đối trước mọi kẻ tấn công ngoại vi bắt sóng WiFi.</li>
+            </ul>
+        `,
+    },
+  },
+  {
+    id: 8,
+    isHighlighted: true,
+    pdf: "https://drive.google.com/file/d/1dXOcHvP4Jjbg2TIozUOR43Zm3no6ILpq/preview",
+    title: {
+      en: "Cold Chain Monitoring System ",
+      vi: "Hệ thống Giám sát Chuỗi cung ứng Lạnh",
+    },
+    domain: {
+      en: "IoT Edge Computing & TinyML",
+      vi: "IoT Điện toán Biên & TinyML",
+    },
+    desc: {
+      en: "A robust Edge-to-Cloud IoT solution utilizing ESP32-S3, FreeRTOS, ESP-NOW, and TinyML to ensure real-time anomaly detection in cold storage environments, independent of internet connectivity.",
+      vi: "Giải pháp IoT Edge-to-Cloud sử dụng ESP32-S3, FreeRTOS, ESP-NOW và TinyML nhằm phát hiện bất thường theo thời gian thực tại kho lạnh, hoạt động độc lập với kết nối Internet.",
+    },
+    github:
+      "https://github.com/PhamGiaLuong/CO3037-ColdChainMonitoringSystem.git",
+    icon: "fas fa-snowflake",
+    detailedDesc: {
+      en: `
+            <h4>1. Project Overview & Applications</h4>
+            <p>The <strong>Cold Chain Monitoring System (CCMS)</strong> addresses the vulnerabilities of traditional cloud-centric logistics monitoring, specifically network disruptions caused by the Faraday cage effect in cold rooms. It employs a hierarchical Edge-centric architecture where sensor nodes locally process data and run AI models to detect anomalies (like prolonged open doors) instantly. These nodes communicate via a local ESP-NOW mesh network to a central Gateway, which then synchronizes with the CoreIoT cloud via MQTT, ensuring uninterrupted data flow and localized decision-making.</p>
+            
+            <h4>2. Technologies & Techniques</h4>
+            <ul>
+                <li><strong>Hardware & Protocols:</strong> ESP32-S3 microcontrollers, DHT20 high-precision I2C sensors, LCD panels, and NeoPixels. Communication is handled via ESP-NOW (L2 Local) and MQTT (Wi-Fi Uplink).</li>
+                <li><strong>Operating System & Architecture:</strong> Real-time operations driven by FreeRTOS utilizing Mutex and Binary Semaphores to ensure thread safety and eliminate race conditions.</li>
+                <li><strong>Software & Tools:</strong> C/C++ development managed within a PlatformIO Monorepo. The Gateway incorporates a Single Page Application (SPA) Web Server served from LittleFS.</li>
+                <li><strong>Artificial Intelligence:</strong> End-to-End MLOps pipeline for TinyML deployment using TensorFlow Lite Micro and Python, utilizing threshold-agnostic feature engineering.</li>
+            </ul>
+            
+            <h4>3. My Contributions</h4>
+            <ul>
+                <li><strong>Event-Driven Control Logic:</strong> Implemented hardware indicator tasks (LEDs) utilizing FreeRTOS Binary Semaphores with Timeout mechanisms, shifting from CPU-intensive polling to zero-latency event-driven responses.</li>
+                <li><strong>Local Web Server & Captive Portal:</strong> Architected a dynamic Captive Portal at the Gateway Node using a Single Page Application (SPA) design, providing a centralized RESTful API interface for multi-node management, OTA configuration, and real-time monitoring.</li>
+                <li><strong>TinyML MLOps Pipeline:</strong> Designed and trained a neural network for edge anomaly detection, applying feature engineering (Normalization & Rate of Change) to make the model threshold-agnostic, achieving a 93.3% accuracy rate directly on the ESP32-S3 hardware.</li>
+                <li><strong>Robust ESP-NOW Networking:</strong> Co-developed the local communication protocol integrating strict MAC pairing, Dual-tier ACKs (Hardware and Application level), and an active Channel Hopping algorithm to prevent network collapse during Router channel shifts.</li>
+            </ul>`,
+      vi: `
+            <h4>1. Tổng quan Dự án & Ứng dụng</h4>
+            <p><strong>Hệ thống Giám sát Chuỗi cung ứng Lạnh (CCMS)</strong> giải quyết triệt để nhược điểm của các giải pháp đám mây tập trung truyền thống, cụ thể là sự đứt gãy kết nối mạng do hiệu ứng lồng Faraday tại các kho lạnh kín. Dự án ứng dụng kiến trúc Điện toán Biên (Edge-centric) phân cấp, cho phép các nút cảm biến tự xử lý dữ liệu và chạy mô hình Trí tuệ nhân tạo (TinyML) để phát hiện sự cố (ví dụ: mở cửa quá lâu) tức thời. Các thiết bị giao tiếp nội bộ qua giao thức ESP-NOW đến Gateway trung tâm, trước khi Gateway đồng bộ dữ liệu lên nền tảng CoreIoT Cloud qua MQTT, đảm bảo luồng thông tin liên tục và khả năng ra quyết định tại chỗ.</p>
+            
+            <h4>2. Công nghệ & Kỹ thuật</h4>
+            <ul>
+            <li><strong>Phần cứng & Giao thức:</strong> Vi điều khiển lõi kép ESP32-S3, Cảm biến môi trường chuẩn I2C DHT20, Màn hình LCD và NeoPixel. Truyền thông sử dụng ESP-NOW (mạng nội bộ lớp 2) và MQTT (đường truyền đám mây).</li>
+            <li><strong>Hệ điều hành & Kiến trúc:</strong> Vận hành thời gian thực trên FreeRTOS, ứng dụng sâu cơ chế Mutex và Binary Semaphore để bảo vệ miền găng và loại bỏ hoàn toàn xung đột tài nguyên đa luồng.</li>
+            <li><strong>Phần mềm & Công cụ:</strong> Lập trình C/C++ quản lý theo chuẩn Monorepo trên PlatformIO. Triển khai kiến trúc Web ứng dụng trang đơn (SPA) nạp từ phân vùng nhớ LittleFS.</li>
+            <li><strong>Trí tuệ nhân tạo (AI):</strong> Xây dựng quy trình MLOps khép kín triển khai TinyML (TensorFlow Lite Micro) với kỹ thuật trích xuất đặc trưng độc lập ngưỡng bằng Python.</li>
+            </ul>
+            
+            <h4>3. Đóng góp của Bản thân</h4>
+            <ul>
+                <li><strong>Kiến trúc Luồng Sự kiện:</strong> Hiện thực hóa các tác vụ chỉ thị cảnh báo (LED nháy) bằng cơ chế Binary Semaphore Timeout của FreeRTOS, chuyển đổi từ phương pháp vòng lặp (Polling) lãng phí sang mô hình phản hồi sự kiện với độ trễ gần như bằng không.</li>
+                <li><strong>Web Server & Captive Portal:</strong> Xây dựng Cổng kết nối động (Captive Portal) tại Gateway với giao diện SPA mượt mà, cung cấp hệ thống RESTful API trung tâm giúp quản trị đa nút mạng, cài đặt OTA và trực quan hóa dữ liệu theo thời gian thực.</li>
+                <li><strong>Quy trình MLOps TinyML:</strong> Huấn luyện mạng Nơ-ron nhận diện bất thường tại biên, áp dụng kỹ thuật Trích xuất đặc trưng (Chuẩn hóa Min-Max & Tốc độ thay đổi) giúp AI hoạt động Độc lập ngưỡng (Threshold-Agnostic), đạt độ chính xác thực tế 93.3% trên phần cứng ESP32-S3 .</li>
+                <li><strong>Giao thức Mạng ESP-NOW Bền bỉ:</strong> Tham gia thiết kế hệ thống truyền tải cục bộ tích hợp cơ chế ghép nối bảo mật (Strict Pairing), Xác nhận kép (Dual-tier ACK) và Thuật toán Dò kênh chủ động (Channel Hopping) nhằm duy trì kết nối khi Router đổi dải tần.</li>
             </ul>
         `,
     },
